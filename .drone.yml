@@ -128,10 +128,7 @@ steps:
       - apt-get update
       - apt-get -y install --no-install-recommends libssl-dev pkg-config libpq-dev
       - cargo build
-      - ls -al
-      - ls -al target/
-      - ls -al target/debug/
-      - ls -al target/debug/lemmy_server
+      - find target/
       - mv target/debug/lemmy_server target/lemmy_server
 
   - name: run federation tests
