@@ -70,8 +70,10 @@ steps:
     #  password:
     #    from_secret: docker_password
     #  repo: dessalines/lemmy
-      auto_tag: true
-      auto_tag_suffix: linux-amd64
+    #  auto_tag: true
+    #  auto_tag_suffix: linux-amd64
+      tags:
+        - test1
     #when:
     #  ref:
     #  - refs/tags/*
