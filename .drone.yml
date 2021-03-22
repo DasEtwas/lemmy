@@ -60,6 +60,8 @@ steps:
       - yarn
       - yarn api-test
       - rm -rf .cargo/
+      - rm -rf target
+      - ls -la
 
   - name: make release build and push to docker hub
     image: plugins/docker
