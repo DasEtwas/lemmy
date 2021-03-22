@@ -24,10 +24,7 @@ steps:
     environment:
       CARGO_HOME: /drone/src/.cargo
     commands:
-      - whoami
-      - ls -la ~/.cargo
       - mv ~/.cargo .
-      - ls -la .cargo
       - cargo clippy --workspace --tests --all-targets --all-features -- -D warnings -D deprecated -D clippy::perf -D clippy::complexity -D clippy::dbg_macro
       - cargo clippy --workspace -- -D clippy::unwrap_used
 
@@ -67,16 +64,16 @@ steps:
     image: plugins/docker
     settings:
       dockerfile: docker/prod/Dockerfile
-      username:
-        from_secret: docker_username
-      password:
-        from_secret: docker_password
-      repo: dessalines/lemmy
+    #  username:
+    #    from_secret: docker_username
+    #  password:
+    #    from_secret: docker_password
+    #  repo: dessalines/lemmy
       auto_tag: true
       auto_tag_suffix: linux-amd64
-    when:
-      ref:
-      - refs/tags/*
+    #when:
+    #  ref:
+    #  - refs/tags/*
 
   - name: push to docker manifest
     image: plugins/manifest
