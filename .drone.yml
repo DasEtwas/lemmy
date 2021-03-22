@@ -59,6 +59,7 @@ steps:
       - cd api_tests/
       - yarn
       - yarn api-test
+      - rm -rf .cargo/
 
   - name: make release build and push to docker hub
     image: plugins/docker
