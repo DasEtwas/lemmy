@@ -8,6 +8,7 @@ RUN cargo install cargo-chef
 # Copy dirs
 COPY ./ ./
 
+RUN env
 RUN sudo chown -R rust:rust .
 RUN cargo chef prepare --recipe-path recipe.json
 
